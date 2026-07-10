@@ -144,7 +144,29 @@ tr:last-child td { border-bottom: none; }
 .glossary dt:first-child { margin-top: 0; }
 .glossary dd { margin: 3px 0 0; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
 
+.search-box { display: flex; gap: 10px; margin: 4px 0 36px; max-width: 560px; }
+.search-input { flex: 1; padding: 14px 16px; font-size: 15px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface-1); color: var(--text-primary); font-family: inherit; min-width: 0; }
+.search-input:focus { outline: 2px solid var(--series-blue); outline-offset: 1px; }
+.search-btn { padding: 14px 22px; font-size: 14px; font-weight: 600; border-radius: 10px; border: none; background: var(--series-blue); color: #fff; cursor: pointer; white-space: nowrap; }
+.search-btn:hover { opacity: 0.9; }
+
+.report-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.report-card { display: block; text-decoration: none; color: inherit; background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 16px; transition: border-color 0.15s; }
+.report-card:hover { border-color: var(--series-blue); }
+.report-ticker { font-size: 12.5px; font-weight: 700; color: var(--series-blue); letter-spacing: 0.03em; }
+.report-name { font-size: 16px; font-weight: 600; margin-top: 2px; }
+.report-summary { font-size: 12.5px; color: var(--text-secondary); margin-top: 6px; line-height: 1.45; }
+.report-date { font-size: 11px; color: var(--text-muted); margin-top: 10px; }
+
+.request-panel { display: none; }
+.request-panel.visible { display: block; }
+.prompt-box { position: relative; background: var(--page-plane); border: 1px solid var(--border); border-radius: 10px; padding: 16px; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; line-height: 1.6; color: var(--text-secondary); white-space: pre-wrap; margin-top: 12px; }
+.copy-btn { margin-top: 12px; padding: 9px 16px; font-size: 13px; font-weight: 600; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-1); color: var(--text-primary); cursor: pointer; }
+.copy-btn:hover { border-color: var(--series-blue); }
+.copy-btn.copied { border-color: var(--good); color: var(--good); }
+
 @media (max-width: 720px) {
   .stat-row { grid-template-columns: repeat(2, 1fr); }
   .grid2 { grid-template-columns: 1fr; }
+  .search-box { flex-direction: column; }
 }

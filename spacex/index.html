@@ -1,0 +1,351 @@
+<meta charset="utf-8">
+<title>SpaceX IPO: Pattern Recognition &amp; Sentiment Analysis</title>
+<link rel="stylesheet" href="../styles.css">
+
+<div class="viz-root">
+
+<nav class="tab-nav">
+  <a href="../index.html" class="tab-link">← All Reports</a>
+  <a href="index.html" class="tab-link active">Full Analysis</a>
+  <a href="simple.html" class="tab-link">Simple Version</a>
+</nav>
+
+<h1>SpaceX IPO — Pattern Recognition &amp; News-Sentiment Analysis</h1>
+<p class="subtitle">SpaceX priced its IPO at $135/share on June 11, 2026 and began trading June 12 under <strong>SPCX</strong> — the largest IPO in history at a ~$1.77T valuation. This is a read of the first four weeks of real trading data (through July 9) against the news cycle that surrounded it, looking for the less-obvious structure underneath the headlines.</p>
+
+<div class="stat-row">
+  <div class="stat-tile">
+    <div class="stat-label">IPO price → Day-1 close</div>
+    <div class="stat-value">$135 → $161</div>
+    <div class="stat-delta up">+19.3% pop</div>
+  </div>
+  <div class="stat-tile">
+    <div class="stat-label">All-time high</div>
+    <div class="stat-value">$225.64</div>
+    <div class="stat-delta neutral">Jun 16 · day 4</div>
+  </div>
+  <div class="stat-tile">
+    <div class="stat-label">All-time low</div>
+    <div class="stat-value">$145.20</div>
+    <div class="stat-delta down">Jul 8 · day 19</div>
+  </div>
+  <div class="stat-tile">
+    <div class="stat-label">Peak-to-trough drawdown</div>
+    <div class="stat-value">−35.6%</div>
+    <div class="stat-delta down">in 16 trading days</div>
+  </div>
+  <div class="stat-tile">
+    <div class="stat-label">Jul 9 close vs IPO price</div>
+    <div class="stat-value">$152.16</div>
+    <div class="stat-delta up">+12.7% above $135</div>
+  </div>
+</div>
+
+<h2><span class="num">01</span>Price &amp; volume through a Wyckoff lens</h2>
+<p class="section-note">Daily OHLCV compiled from public market data (Investing.com / StockAnalysis / CNBC trade recaps). Bands below are my own pattern labeling, mapping the post-IPO trading range onto the classic Wyckoff accumulation→distribution schematic — treat it as an illustrative read of a 4-week sample, not a technical certification.</p>
+
+<div class="card">
+<svg viewBox="0 0 1040 500" width="100%" style="overflow:visible">
+  <!-- phase bands -->
+  <rect x="40" y="10" width="155" height="460" fill="var(--series-blue)" opacity="0.07"/>
+  <rect x="195" y="10" width="325" height="460" fill="var(--series-yellow)" opacity="0.08"/>
+  <rect x="520" y="10" width="270" height="460" fill="var(--series-blue)" opacity="0.07"/>
+  <rect x="790" y="10" width="210" height="460" fill="var(--critical)" opacity="0.09"/>
+
+  <text x="117" y="26" class="phase-label" text-anchor="middle">BUYING CLIMAX</text>
+  <text x="357" y="26" class="phase-label" text-anchor="middle">DISTRIBUTION (lower highs)</text>
+  <text x="655" y="26" class="phase-label" text-anchor="middle">"BUY THE RUMOR" RALLY</text>
+  <text x="895" y="26" class="phase-label" text-anchor="middle">"SELL THE NEWS" MARKDOWN</text>
+
+  <!-- gridlines + y labels (price panel) -->
+  <line x1="40" y1="300.0" x2="1000" y2="300.0" class="gridline"/>
+  <text x="34" y="304" class="y-label">$140</text>
+  <line x1="40" y1="237.8" x2="1000" y2="237.8" class="gridline"/>
+  <text x="34" y="241.8" class="y-label">$160</text>
+  <line x1="40" y1="175.6" x2="1000" y2="175.6" class="gridline"/>
+  <text x="34" y="179.6" class="y-label">$180</text>
+  <line x1="40" y1="113.3" x2="1000" y2="113.3" class="gridline"/>
+  <text x="34" y="117.3" class="y-label">$200</text>
+  <line x1="40" y1="51.1" x2="1000" y2="51.1" class="gridline"/>
+  <text x="34" y="55.1" class="y-label">$220</text>
+
+  <!-- IPO open reference -->
+  <line x1="40" y1="268.9" x2="1000" y2="268.9" class="ref-line"/>
+  <text x="46" y="264" class="ref-label" text-anchor="start">IPO open $150</text>
+
+  <text x="40" y="12" class="panel-title">SPCX daily close ($)</text>
+
+  <!-- price line -->
+  <path d="M 60.0,234.7 L 114.1,136.7 L 168.2,107.7 L 222.4,138.8 L 276.5,160.0 L 330.6,254.6 L 384.7,249.9 L 438.8,254.8 L 492.9,259.6 L 547.1,258.8 L 601.2,224.7 L 655.3,204.0 L 709.4,245.4 L 763.5,231.6 L 817.6,236.5 L 871.8,270.5 L 925.9,274.2 L 980.0,262.2" class="price-line"/>
+
+  <!-- dots -->
+  <circle cx="60.0" cy="234.7" r="4.5" class="price-dot"/>
+  <circle cx="114.1" cy="136.7" r="4.5" class="price-dot"/>
+  <circle cx="168.2" cy="107.7" r="5.5" class="price-dot"/>
+  <circle cx="222.4" cy="138.8" r="4.5" class="price-dot"/>
+  <circle cx="276.5" cy="160.0" r="4.5" class="price-dot"/>
+  <circle cx="330.6" cy="254.6" r="4.5" class="price-dot"/>
+  <circle cx="384.7" cy="249.9" r="4.5" class="price-dot"/>
+  <circle cx="438.8" cy="254.8" r="4.5" class="price-dot"/>
+  <circle cx="492.9" cy="259.6" r="4.5" class="price-dot"/>
+  <circle cx="547.1" cy="258.8" r="4.5" class="price-dot"/>
+  <circle cx="601.2" cy="224.7" r="4.5" class="price-dot"/>
+  <circle cx="655.3" cy="204.0" r="4.5" class="price-dot"/>
+  <circle cx="709.4" cy="245.4" r="4.5" class="price-dot"/>
+  <circle cx="763.5" cy="231.6" r="4.5" class="price-dot"/>
+  <circle cx="817.6" cy="236.5" r="4.5" class="price-dot"/>
+  <circle cx="871.8" cy="270.5" r="4.5" class="price-dot"/>
+  <circle cx="925.9" cy="274.2" r="5.5" class="price-dot"/>
+  <circle cx="980.0" cy="262.2" r="4.5" class="price-dot"/>
+
+  <!-- callouts -->
+  <text x="168.2" y="98" class="ref-label" text-anchor="middle" font-weight="700">ATH $225.64 (close $201.80)</text>
+  <text x="925.9" y="290" class="ref-label" text-anchor="middle" font-weight="700">ATL $145.20</text>
+
+  <!-- volume panel -->
+  <text x="40" y="322" class="panel-title">Volume (shares)</text>
+  <line x1="40" y1="470" x2="1000" y2="470" class="baseline"/>
+
+  <rect x="46.5" y="335.4" width="27.1" height="134.6" class="vol-up"/>
+  <rect x="100.6" y="401.0" width="27.1" height="69.0" class="vol-up"/>
+  <rect x="154.7" y="383.3" width="27.1" height="86.7" class="vol-up"/>
+  <rect x="208.8" y="415.7" width="27.1" height="54.3" class="vol-down"/>
+  <rect x="262.9" y="396.7" width="27.1" height="73.3" class="vol-down"/>
+  <rect x="317.1" y="424.5" width="27.1" height="45.5" class="vol-down"/>
+  <rect x="371.2" y="428.0" width="27.1" height="42.0" class="vol-up"/>
+  <rect x="425.3" y="449.5" width="27.1" height="20.5" class="vol-down"/>
+  <rect x="479.4" y="453.3" width="27.1" height="16.7" class="vol-down"/>
+  <rect x="533.5" y="435.8" width="27.1" height="34.2" class="vol-up"/>
+  <rect x="587.6" y="448.1" width="27.1" height="21.9" class="vol-up"/>
+  <rect x="641.8" y="447.9" width="27.1" height="22.1" class="vol-up"/>
+  <rect x="695.9" y="440.6" width="27.1" height="29.4" class="vol-down"/>
+  <rect x="750.0" y="453.5" width="27.1" height="16.5" class="vol-up"/>
+  <rect x="804.1" y="419.2" width="27.1" height="50.8" class="vol-down"/>
+  <rect x="858.2" y="447.4" width="27.1" height="22.6" class="vol-down"/>
+  <rect x="912.4" y="453.7" width="27.1" height="16.3" class="vol-down"/>
+  <rect x="966.5" y="457.6" width="27.1" height="12.4" class="vol-up"/>
+
+  <!-- x axis labels -->
+  <text x="60.0" y="490" class="axis-label">Jun 12</text>
+  <text x="114.1" y="490" class="axis-label">15</text>
+  <text x="168.2" y="490" class="axis-label">16</text>
+  <text x="222.4" y="490" class="axis-label">17</text>
+  <text x="276.5" y="490" class="axis-label">18</text>
+  <text x="330.6" y="490" class="axis-label">22</text>
+  <text x="384.7" y="490" class="axis-label">23</text>
+  <text x="438.8" y="490" class="axis-label">24</text>
+  <text x="492.9" y="490" class="axis-label">25</text>
+  <text x="547.1" y="490" class="axis-label">26</text>
+  <text x="601.2" y="490" class="axis-label">29</text>
+  <text x="655.3" y="490" class="axis-label">30</text>
+  <text x="709.4" y="490" class="axis-label">Jul 1</text>
+  <text x="763.5" y="490" class="axis-label">2</text>
+  <text x="817.6" y="490" class="axis-label">6</text>
+  <text x="871.8" y="490" class="axis-label">7</text>
+  <text x="925.9" y="490" class="axis-label">8</text>
+  <text x="980.0" y="490" class="axis-label">9</text>
+</svg>
+<div class="chart-legend">
+  <span class="legend-key"><span class="swatch" style="background:var(--series-blue)"></span>Daily close</span>
+  <span class="legend-key"><span class="swatch" style="background:var(--good);opacity:0.55"></span>Up-day volume</span>
+  <span class="legend-key"><span class="swatch" style="background:var(--critical);opacity:0.55"></span>Down-day volume</span>
+</div>
+</div>
+
+<h2><span class="num">02</span>What the volume signature says</h2>
+<div class="grid2">
+  <div class="card">
+    <div class="stat-label">Post-climax volume asymmetry (Jun 22 – Jul 9)</div>
+    <div class="stat-value" style="font-size:19px; margin-top:6px;">Down days averaged 107.2M shares<br>Up days averaged 92.2M shares</div>
+    <div class="stat-delta down">+16.2% more volume on down days</div>
+  </div>
+  <div class="card">
+    <div class="stat-label">Day-1 and ATH-day volume</div>
+    <div class="stat-value" style="font-size:19px; margin-top:6px;">~500M shares (Jun 12)<br>322M shares (Jun 16, ATH)</div>
+    <div class="stat-delta neutral">Two heaviest days both cluster around the top — classic climax signature</div>
+  </div>
+</div>
+
+<h2><span class="num">03</span>The news cycle, broken into six windows</h2>
+<p class="section-note">Sentiment coded qualitatively from headline framing and article content gathered across outlets for each window (not a full-corpus NLP score — treat direction and relative magnitude as the signal, not the exact number).</p>
+
+<div class="card">
+<table>
+<thead><tr><th style="width:22%">Window</th><th style="width:12%">Net tone</th><th>What was in the coverage</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>Roadshow</strong><br><span style="color:var(--text-muted)">Jun 4–11</span></td>
+  <td><span class="tag bull">Bullish</span></td>
+  <td>Demand reported at ~$250B against a $75B raise (3.5–4x oversubscribed) became the dominant frame — "historic," "unprecedented retail access" (~30% of shares reserved for individuals). A minority thread (Forbes, May 18) flagged "Musk Effect" governance risk before the hype cycle crowded it out.</td>
+</tr>
+<tr>
+  <td><strong>Debut</strong><br><span style="color:var(--text-muted)">Jun 12</span></td>
+  <td><span class="tag bull">Strongly bullish</span></td>
+  <td>"Biggest IPO in history" framing dominated (CNN, CNBC, NPR). Volume (~500M shares) compared directly to Facebook's 2012 debut — a record-chasing narrative that reinforces itself independent of valuation.</td>
+</tr>
+<tr>
+  <td><strong>Run to ATH</strong><br><span style="color:var(--text-muted)">Jun 15–16</span></td>
+  <td><span class="tag bull">Bullish</span></td>
+  <td>Sell-side coverage arrives: JPMorgan (Overweight, $225 PT), Morgan Stanley (Overweight, $300 PT) — both published near the top. Retail-facing outlets amplified price-target headlines as confirmation.</td>
+</tr>
+<tr>
+  <td><strong>Reversal begins</strong><br><span style="color:var(--text-muted)">Jun 17–26</span></td>
+  <td><span class="tag mixed">Mixed</span></td>
+  <td>Coverage tone lags price: "stock drops below IPO opening price despite flood of bullish Wall Street ratings" (Yahoo Finance) is the emblematic headline — sell-side sentiment stays fixed while price sentiment (the tape itself) turns.</td>
+</tr>
+<tr>
+  <td><strong>Rumor rally</strong><br><span style="color:var(--text-muted)">Jun 26–Jul 2</span></td>
+  <td><span class="tag bull">Mildly bullish</span></td>
+  <td>Anticipation of Nasdaq-100 inclusion (effective Jul 7, an estimated $4.3B in passive/index-fund inflows) builds a secondary narrative, and price rallies ~11% off the Jun 26 low into it.</td>
+</tr>
+<tr>
+  <td><strong>Sell the news</strong><br><span style="color:var(--text-muted)">Jul 5–8</span></td>
+  <td><span class="tag bear">Bearish</span></td>
+  <td>Jeremy Grantham's "top of a terrific bubble" line (Motley Fool, Jul 5) goes viral just as the technical structure breaks. Stock falls through the Nasdaq-100 inclusion date itself (−6.8% on Jul 7) and prints a new post-IPO low the next session.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2><span class="num">04</span>Did sentiment differ by outlet?</h2>
+<div class="card">
+<table>
+<thead><tr><th style="width:18%">Outlet / voice</th><th>Character of coverage</th></tr></thead>
+<tbody>
+<tr><td><strong>CNBC</strong></td><td>Closest to neutral — live-blog, price-tracking tone. Read as bullish on the way up only because the tape was going up; turned matter-of-factly negative once it wasn't ("closes below debut price... after Nasdaq-100 inclusion").</td></tr>
+<tr><td><strong>Yahoo Finance</strong></td><td>Widest spread of any outlet — because it syndicates outside contributors, it ran both the most euphoric pieces and the most contrarian one found in this research ("7 Reasons I'm Avoiding the SpaceX IPO Like the Plague"), often within the same week.</td></tr>
+<tr><td><strong>Motley Fool</strong></td><td>Editorial stance moved with price: promotional "IPO guide" content pre-listing, then the Grantham bubble-top piece once the drawdown was underway. A useful reminder that outlet-level sentiment isn't fixed — it's regime-dependent.</td></tr>
+<tr><td><strong>Forbes</strong></td><td>Earliest skeptical voice — the "Musk Effect" governance-risk piece ran May 18, three weeks before the roadshow, while retail coverage elsewhere was still building hype.</td></tr>
+<tr><td><strong>Al Jazeera</strong> (int'l press)</td><td>Skeptical earlier and on structural grounds (valuation, "highly undesirable" framing) rather than price action — non-US financial press leaned critical before US retail-facing outlets did.</td></tr>
+<tr><td><strong>Sell-side research</strong> (JPMorgan, Morgan Stanley)</td><td>Uniformly bullish (Overweight, $225–$300 targets) and — as of this writing — never publicly walked back despite a 35.6% drawdown from the price these targets were set near. The most persistent, least-adaptive bullish voice in the whole story.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2><span class="num">05</span>Six patterns worth flagging</h2>
+<div class="card">
+  <div class="finding">
+    <div class="finding-num">1</div>
+    <div class="finding-body">
+      <h3>The volume climax and the price climax landed on different days</h3>
+      <p>Heaviest volume was Day 1 (~500M shares) — before the real top. The all-time-high close came two days later (Jun 16) on the second-heaviest day (322M). In Wyckoff terms that's textbook: a preliminary supply event followed by the actual buying climax, rather than one clean spike.</p>
+    </div>
+  </div>
+  <div class="finding">
+    <div class="finding-num">2</div>
+    <div class="finding-body">
+      <h3>"Buy the rumor, sell the news" on the Nasdaq-100 inclusion — almost to the day</h3>
+      <p>The stock rallied ~11% into the July 7 inclusion date on building anticipation, then fell 6.8% on the inclusion date itself and kept falling to a new all-time low the next session. The mechanical/passive-flow narrative (index funds "have to buy") got front-run by active money selling into it.</p>
+    </div>
+  </div>
+  <div class="finding">
+    <div class="finding-num">3</div>
+    <div class="finding-body">
+      <h3>Down-day volume outweighed up-day volume by 16% once the euphoria phase ended</h3>
+      <p>Excluding IPO-week settlement noise, from Jun 22 onward down days averaged 107M shares vs. 92M on up days — quiet distribution (supply absorbing demand) rather than a single panic event, consistent with the multi-week grind lower rather than a crash.</p>
+    </div>
+  </div>
+  <div class="finding">
+    <div class="finding-num">4</div>
+    <div class="finding-body">
+      <h3>Sell-side sentiment was the stickiest, least price-sensitive signal — and that's a warning sign in itself</h3>
+      <p>Analyst price targets (set at or above the euphoric highs) never moved even as the stock round-tripped through a 35% drawdown. That's less a signal about SpaceX and more a reminder that underwriter-affiliated research is a lagging, structurally optimistic indicator right after an IPO — the "flood of bullish ratings" headline this cycle produced is close to a generic pattern seen in past mega-IPOs.</p>
+    </div>
+  </div>
+  <div class="finding">
+    <div class="finding-num">5</div>
+    <div class="finding-body">
+      <h3>The most bearish quote of the cycle landed almost exactly at the structural break</h3>
+      <p>Grantham's "top of a terrific bubble" line surfaced July 5 — after the top (Jun 16) but right before the stock broke the $150 IPO-open level and made a new low (Jul 7–8). Viral bearish narrative didn't call the top; it arrived as a lagging confirmation of a move already in progress, which is the more common real-world pattern than "contrarian indicator predicts reversal."</p>
+    </div>
+  </div>
+  <div class="finding">
+    <div class="finding-num">6</div>
+    <div class="finding-body">
+      <h3>Pre-IPO price discovery was already fractured before day one</h3>
+      <p>In the weeks before pricing, secondary markets disagreed sharply on fair value — Forge Global implied ~$1.51T while Hiive implied ~$1.86T (an 18% spread), reportedly because the platforms attracted different investor tiers (institutional vs. smaller accredited retail). That valuation disagreement between investor classes shows up again post-IPO as the retail-vs-sell-side sentiment split in row 4 above — the same fault line, twice.</p>
+    </div>
+  </div>
+</div>
+
+<h2><span class="num">06</span>Deeper investigation: does the manipulation theory survive scrutiny?</h2>
+<p class="section-note">The first pass (below, revised) flagged a "shakeout"-shaped sequence around Jul 7–9. Digging into lock-up filings, short-interest data, options flow, and the actual airdate of the Grantham interview walks most of that back. <strong>Bottom line: no confirmed evidence of manipulation</strong> — no SEC/FINRA action, no insider dumping, no short-seller campaign. A couple of real, legal, structural incentives do hold up, and one concrete thing is worth watching going forward.</p>
+
+<div class="card score-card">
+  <div class="score-hero">
+    <div><span class="score-number">21.5</span><span class="score-max">/ 100</span></div>
+    <div class="score-band-tag">Low</div>
+  </div>
+  <div>
+    <div class="meter-track"><div class="meter-fill" style="width:21.5%"></div></div>
+    <div class="score-scale"><span>0 Minimal</span><span>35 Low</span><span>55 Moderate</span><span>75 Elevated</span><span>100 High</span></div>
+  </div>
+  <p class="section-note" style="margin:0;">A weighted rubric across 8 checkable categories, built from the evidence gathered in this session — <strong>not</strong> a certified fraud-detection score. It reflects "how much of what's <em>publicly checkable</em> is consistent with manipulation," not a claim about intent or a guarantee nothing improper occurred. Weights reflect how directly each category implies deliberate manipulation vs. ordinary (legal) market/media structure — insider dealing and regulatory action are weighted highest because they're the closest thing to hard evidence; media-recycling effects are weighted lowest because they're nearly universal across all IPOs and don't by themselves imply intent.</p>
+  <table class="score-table">
+    <thead><tr><th style="width:34%">Category</th><th>Weight</th><th>Score /10</th><th>Weighted</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Insider selling timing</td><td>20%</td><td>0</td><td>0.00</td><td>Musk's shares locked 366 days, zero early release; other insiders' lock-up not yet open. No shares available to dump in this window.</td></tr>
+      <tr><td>Short interest / bear-raid signature</td><td>15%</td><td>1</td><td>0.15</td><td>Only ~5–7% of float short — unusually low for a 35% drawdown; no activist short report found.</td></tr>
+      <tr><td>Regulatory red flags</td><td>15%</td><td>0</td><td>0.00</td><td>No SEC/FINRA action, halt, or manipulation complaint found tied to SPCX.</td></tr>
+      <tr><td>Narrative-timing coincidence</td><td>15%</td><td>2</td><td>0.30</td><td>Viral Grantham quote was 10-day-old recycled content, not freshly timed; Nasdaq-100 sell-the-news is real but common and legal.</td></tr>
+      <tr><td>Underwriter / sell-side conflict</td><td>15%</td><td>6</td><td>0.90</td><td>JPMorgan/Morgan Stanley stayed bullish through a 35.6% drawdown — real, documented, industry-wide structural bias.</td></tr>
+      <tr><td>Options-flow divergence</td><td>10%</td><td>4</td><td>0.40</td><td>Large deep-OTM put buying (likely an existing holder hedging) while retail-facing coverage stayed bullish.</td></tr>
+      <tr><td>Media concentration / recycling</td><td>5%</td><td>5</td><td>0.25</td><td>Syndication and cross-outlet recycling of one soundbite amplify a single narrative beyond its original weight.</td></tr>
+      <tr><td>Structural incentive (lock-up bonus)</td><td>5%</td><td>3</td><td>0.15</td><td>Real mechanical incentive tied to a $175.50 threshold before Q2 earnings — not yet triggered, price well below the bar.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <div class="finding">
+    <div class="finding-num">✕</div>
+    <div class="finding-body">
+      <h3>Retracted: the Grantham quote wasn't freshly timed to the breakdown</h3>
+      <p>The "top of a terrific bubble" line was recorded on Steven Bartlett's <em>Diary of a CEO</em> podcast, which aired <strong>June 25</strong> — not July 5. The Motley Fool piece I'd flagged as landing "right before the breakdown" was actually ~10-day-old commentary getting re-syndicated (TheStreet, Yahoo, AOL, and The Wealth Advisor all ran their own versions across late June into July) as the stock kept sliding. That's financial media recycling a soundbite that was already performing well, not a hit piece timed to a technical level. The original "perfectly timed" read doesn't hold up once the actual airdate is checked.</p>
+    </div>
+  </div>
+  <div class="finding">
+    <div class="finding-num">✕</div>
+    <div class="finding-body">
+      <h3>Retracted: no insider-dumping mechanism was available in this window</h3>
+      <p>Musk's ~6.4B shares are locked for 366 days with <strong>zero early-release provisions</strong> — not eligible for transfer until June 12, 2027. Every other insider's 180-day lock-up doesn't open until after Q2 earnings (expected ~Aug 6–11), with the bulk of shares not free until December 8. Nobody with inside knowledge had shares available to sell into the June/July decline. "Insiders quietly cashed out into the hype" isn't supported by the filings for this stock, in this window.</p>
+    </div>
+  </div>
+  <div class="finding">
+    <div class="finding-num">✕</div>
+    <div class="finding-body">
+      <h3>No sign of a coordinated bear raid</h3>
+      <p>Short interest sits at only ~5–7% of the tradable float — unusually <em>low</em> for a stock down 35% from its high, and CNBC reported traders remain "afraid to bet against Musk." A shakeout theory usually implies someone profits from the panic — typically a short base covering into forced selling. Here the short base barely exists, and no activist short-seller (Hindenburg, Muddy Waters, Citron-type report) has targeted the stock. No SEC/FINRA enforcement action or manipulation complaint turned up either.</p>
+    </div>
+  </div>
+  <div class="finding">
+    <div class="finding-num">✓</div>
+    <div class="finding-body">
+      <h3>Holds up: "sell the news" into guaranteed, mechanical buying</h3>
+      <p>Nasdaq-100 inclusion (Jul 7) triggered an estimated $4.3B in passive/index-fund buying that was publicly known in advance — and the stock still fell 6.8% that day and kept falling. Active money used a certain, scheduled buyer as exit liquidity. That's legal and common (sometimes called distributing into a liquidity event) — it doesn't require anyone to have lied about anything, but it is a real, verifiable divergence between the "index inclusion is bullish" framing retail got and what sophisticated holders actually did with it.</p>
+    </div>
+  </div>
+  <div class="finding">
+    <div class="finding-num">✓</div>
+    <div class="finding-body">
+      <h3>Holds up: someone big was quietly hedging while retail coverage stayed rosy</h3>
+      <p>Barchart flagged unusually large volume in deep out-of-the-money SPCX puts ($80 strike, expiring Dec 2028) on Jul 8 — a structure analysts describe as typically initiated by an existing large shareholder buying long-dated tail-risk insurance, not a speculative short bet. That's consistent with an early/locked-up holder quietly hedging years out ahead of the Dec 8 lock-up cliff, at the same time retail-facing coverage and sell-side ratings stayed bullish. Legal, but a genuine gap between what informed money was doing and what retail was being told.</p>
+    </div>
+  </div>
+  <div class="finding">
+    <div class="finding-num">→</div>
+    <div class="finding-body">
+      <h3>Watch, don't conclude: a real mechanical incentive that hasn't triggered yet</h3>
+      <p>SpaceX's lock-up has a bonus 10% early-release tranche for insiders that only vests if the stock closes at or above $175.50 (30% over the $135 IPO price) on 5 of the 10 trading days before the Q2 earnings release (expected ~Aug 6–11). That's a real, filed, checkable financial incentive for insiders to want the stock elevated in that specific window. Current price (~$152) is well below the bar, so nothing has happened yet — but if SPCX rallies hard into early August, or if a wave of suddenly-bullish coverage appears right around that 10-day window, this is the concrete mechanism that would explain why, not a vague "media manipulation" narrative.</p>
+    </div>
+  </div>
+</div>
+
+<p class="section-note" style="margin-top:16px;"><strong>Revised verdict:</strong> the sequence around Jul 7–9 still <em>looks</em> shakeout-shaped on a chart, but the ingredients that would make it an actual engineered one — a short base with something to gain, insiders positioned to sell into the hype or buy back the panic, a freshly timed catalyst — aren't there. The more mundane explanation fits better: an extremely richly valued IPO cooling off the way expensive new issues often do, amplified by financial media's habit of recycling whatever soundbite is already getting clicks, on top of one well-documented structural bias (underwriter research) and one real but legal divergence (informed hedging vs. bullish retail coverage). That's a materially different conclusion than the first pass, and the correction is the point — it's what checking the record actually gets you that a headline-sentiment read alone doesn't.</p>
+
+<h2><span class="num">07</span>Methodology &amp; caveats</h2>
+<p class="footnote">
+Price/volume data compiled from public sources (Investing.com, StockAnalysis.com, CNBC trade recaps) for the period June 12 – July 9, 2026; a small number of individual OHLC prints were cross-referenced across sources due to minor discrepancies between them (e.g., Day-1 close reported as $160.95–$161.11 depending on source). Sentiment classification is a qualitative read of headline framing and article content surfaced via targeted search across outlets — it is not a systematic full-text sentiment model over a complete news corpus, and the sample of articles is necessarily partial. Four weeks of post-IPO trading is a short window for pattern-matching against a schematic (Wyckoff) developed for longer-horizon accumulation/distribution ranges; the labels here are offered as a structured way to organize what happened, not as a predictive claim about where SPCX trades next. Past pattern resemblance is not a forecast. The manipulation investigation (section 06) draws on SEC Form 4 filings and the 424B4 lock-up schedule, reported short-interest figures, and options-flow reporting (Barchart's unusual-activity desk) in addition to news search — but it is still a desk review of public secondary reporting, not primary access to SEC EDGAR full-text search, FINRA's disciplinary database, or actual trade-level/dark-pool data. It can rule out the specific mechanisms checked (this insider base couldn't have dumped shares in this window; short interest was low; no enforcement action surfaced); it cannot rule out mechanisms that would only show up in data this review didn't have access to (e.g., coordinated social-media promotion, spoofing, or non-public trade timing).
+</p>
+
+</div>
