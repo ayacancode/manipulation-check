@@ -7,5 +7,14 @@
     "simplePath": "spacex/simple.html",
     "summary": "IPO pattern recognition, news-sentiment analysis, and manipulation check",
     "dateAdded": "2026-07-09"
+  },
+  {
+    "ticker": "GOOG",
+    "name": "Alphabet (Google)",
+    "aliases": ["GOOGL", "ALPHABET", "GOOGLE"],
+    "path": "goog/index.html",
+    "simplePath": "goog/simple.html",
+    "summary": "AI-rally-to-drawdown pattern recognition, news-sentiment analysis, and manipulation check",
+    "dateAdded": "2026-07-11"
   }
 ]
